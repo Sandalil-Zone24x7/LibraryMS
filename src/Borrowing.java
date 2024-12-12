@@ -1,6 +1,4 @@
-import java.util.Date;
+package PACKAGE_NAME;
 
 public class Borrowing {
-    private Date dueDate;
-    private Date borrowedDate;
 }
