@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Member extends Person{
     private ArrayList<Book> books;
@@ -13,7 +14,7 @@ public class Member extends Person{
         this.memberId = memberId;
         this.password = password;
         this.authenticated = false;
-        this.borrowedBooks = null;
+        this.borrowedBooks = new ArrayList<Borrowing>();
     }
 
     @Override
@@ -46,9 +47,18 @@ public class Member extends Person{
         if(!available){
             System.out.println("The book is currently unavailable.");
         }else{
-            Book checkoutBook = library.getBook(name);
-            checkoutBook.decrementBookCount(name);
-            addToBorrowedBook(new Borrowing(LocalDate.now(), checkoutBook ));
+            System.out.println("Press 1 to Confirm borrowing.");
+            Scanner scanner = new Scanner(System.in);
+            int confirmed = scanner.nextInt();
+            if(confirmed == 1) {
+                System.out.println("You borrowed the book:" + name);
+                Book checkoutBook = library.getBook(name);
+                checkoutBook.decrementBookCount(name);
+                addToBorrowedBook(new Borrowing(LocalDate.now(), checkoutBook));
+            }
+            else{
+                System.out.println("Exiting.");
+            }
         }
     }
     public void addToBorrowedBook(Borrowing borrowing){
@@ -76,6 +86,7 @@ public class Member extends Person{
 
     }
     public void getBorrowedBooks(){
+        System.out.println("These are the books you borrowed:");
         for(Borrowing borrowing: borrowedBooks){
             System.out.println(borrowing.getBookName());
         }

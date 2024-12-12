@@ -11,7 +11,7 @@ public class CommandHandler {
 
             // Display the Menu
             System.out.print("Select the functionality.");
-            System.out.println("\n 1.Display Books. \n 2.Check Availability. \n 3.Borrow book.");
+            System.out.println("\n 1.Display Books. \n 2.Check Availability. \n 3.Borrow book. \n 4.Get a list of borrowed books.");
 
             //Handle commands
             Scanner scanner = new Scanner(System.in);
@@ -25,6 +25,9 @@ public class CommandHandler {
                     break;
                 case 3:
                     borrowBook();
+                    break;
+                case 4:
+                    showBorrowedBooks();
                     break;
                 default:
                     System.out.println("Invalid command.");
@@ -50,5 +53,8 @@ public class CommandHandler {
         System.out.print("Enter the name of the book: ");
         String name = scanner.nextLine();
         member.checkoutBook(name);
+    }
+    public void showBorrowedBooks(){
+        member.getBorrowedBooks();
     }
 }

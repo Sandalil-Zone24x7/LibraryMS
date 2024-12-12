@@ -15,7 +15,7 @@ public class Book {
     }
     @Override
     public String toString() {
-        return "Title: " + title + ", Author: " + author;
+        return "Title: " + title + ", Author: " + author + ". " + bookCount + " Copies Available" ;
     }
     public String getTitle(){
         return this.title;
