@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Auth {
 
-    public Member login(String memberId, String password){
+    public Member authenticate(int memberId, String password){
         ArrayList<Member> members = Library.getInstance().getMembers();
         for(Member member: members){
-            if((member.getMemberId().equals(memberId)) && (member.getPassword().equals(password))){
+            if((member.getMemberId() == memberId) && (member.getPassword().equals(password))){
                 member.setAuthenticated(true);
                 System.out.println("Authenticated");
                 return member;

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Book {
     final int id;
-    final String title;
+    private String title;
     final String author;;
     private int bookCount;
 
@@ -17,6 +17,9 @@ public class Book {
     public String toString() {
         return "Title: " + title + ", Author: " + author;
     }
+    public String getTitle(){
+        return this.title;
+    }
     private void borrow(){
 
     }
@@ -27,10 +30,10 @@ public class Book {
         return false;
     }
 
-    public void incrementBookCount(boolean availability){
+    public void incrementBookCount(String name){
         this.bookCount = bookCount+1;
     }
-    public void decrementBookCount(boolean availability){
+    public void decrementBookCount(String name){
         this.bookCount = bookCount-1;
     }
 

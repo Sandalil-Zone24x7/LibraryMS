@@ -13,14 +13,26 @@ public class BookRepository {
         )
         );
     }
-    public ArrayList<Book> getRepository(){
+    public ArrayList<Book> getBookArray(){
         return this.bookArray;
     }
 
     public void addField(Book book){
+        System.out.println("added to the library");
         this.bookArray.add(book);
     }
     public void removeField(){
 
     }
+
+    public Book findBook(String name){
+        for(Book book: bookArray){
+            if(book.getTitle().equals(name)){
+                return book;
+            }
+        }
+        return null;
+    }
+
+
 }
